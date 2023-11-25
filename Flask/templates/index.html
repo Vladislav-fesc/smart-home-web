@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart-Home</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <h1>Система Smart-Home</h1>
+
+    <h2>Показатели датчиков</h2>
+    <ul>
+        <li>Температура датчика 1: <span id="temperature1"></span> °C</li>
+        <li>Температура датчика2: <span id="temperature2"></span> °C</li>
+        <li>Tемпература датчика 3: <span id="temperature3"></span> °C</li>
+        <li>Температура датчика 4: <span id="temperature4"></span> °C</li>
+    </ul>
+
+    <div id="plot"></div>
+
+    <script>
+        function updateData() {
+            fetch('/update_data', { method: 'POST' })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('temperature1').innerText = data.sensor_data.temperature1;
+                    document.getElementById('temperature2').innerText = data.sensor_data.temperature2;
+                    document.getElementById('temperature3').innerText = data.sensor_data.temperature3;
+                    document.getElementById('temperature4').innerText = data.sensor_data.temperature4;
+
+                    // Plotly график
+                    Plotly.newPlot('plot', [
+                        {
+                            x: data.temperature_history.map(entry => entry.time),
+                            y: data.temperature_history.map(entry => entry.temperature1),
+                            type: 'scatter',
+                            mode: 'lines+markers',
+                            name: 'Temperature 1',
+                            line: { color: 'red' }
+                        },
+                        {
+                            x: data.temperature_history.map(entry => entry.time),
+                            y: data.temperature_history.map(entry => entry.temperature2),
+                            type: 'scatter',
+                            mode: 'lines+markers',
+                            name: 'Temperature 2',
+                            line: { color: 'blue' }
+                        },
+                        {
+                            x: data.temperature_history.map(entry => entry.time),
+                            y: data.temperature_history.map(entry => entry.temperature3),
+                            type: 'scatter',
+                            mode: 'lines+markers',
+                            name: 'Temperature 3',
+                            line: { color: 'green' }
+                        },
+                        {
+                            x: data.temperature_history.map(entry => entry.time),
+                            y: data.temperature_history.map(entry => entry.temperature4),
+                            type: 'scatter',
+                            mode: 'lines+markers',
+                            name: 'Temperature 4',
+                            line: { color: 'yellow' }
+                        }
+                    ], { title: 'График температуры с датчиков', xaxis: { title: 'Время' }, yaxis: { title: 'Температура' } });
+                });
+        }
+
+        // Автоматическое обновление каждую минуту
+        setInterval(updateData, 60000);
+
+        // Инициализация графика
+        updateData();
+    </script>
+</body>
+</html>
