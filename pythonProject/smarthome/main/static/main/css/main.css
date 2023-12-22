@@ -1,0 +1,70 @@
+body{
+    background: #F5F5F5;
+}
+
+aside {
+    float: left;
+    background: #9370DB;
+    width: 18%;
+    padding: 2.5%;
+    height: 100vh;
+    color: #fff;
+    border-right: 5px solid #4d4d4d;
+}
+
+aside img {
+    width: 80px;
+    float: left;
+}
+
+aside span{
+    font-size: 25px;
+    margin-left: 20px;
+    font-weight: bold;
+    position: relative;
+    top: +18px;
+}
+
+aside h3 {
+    margin-top: 60px;
+    font-size: 25px;
+}
+aside ul {list-style: none}
+aside ul li {
+    color: #fff;
+    display: block;
+    margin-top: 20px;
+    margin-left: -30px;
+    transition: transform .6s ease;
+}
+aside ul li:hover,hover, aside ul a hover{
+    color: 	#000000;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+main div {
+    float: left;
+    margin-top: 100px;
+    text-align: center;
+    width: 75%;
+}
+
+main div h1 {font-size: 50px;}
+main div p {max-width: 400px; margin: 20px auto}
+
+
+.alert-warning {
+    float: left;
+    clear: both;
+    width: 400px;
+    margin: 20px 34%;
+    text-align: left;
+}
+form {
+    margin-left: 32%;
+    width: 500px;
+    margin-top: 50px;
+}
+
+

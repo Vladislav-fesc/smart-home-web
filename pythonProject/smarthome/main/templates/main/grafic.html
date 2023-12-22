@@ -1,0 +1,157 @@
+{% extends 'main/layout.html' %}
+{% block title %}Графики{% endblock %}
+
+
+{% block content %}
+    <div class="features">
+        <h1 style="text-shadow: 1px 1px 1px #000, -1px -1px 1px #000;">Графики</h1>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link type="text/css" rel="StyleSheet" href="https://bootstraptema.ru/plugins/2016/shieldui/style.css" />
+        <script src="https://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
+        <script src="https://bootstraptema.ru/plugins/2016/shieldui/script.js"></script>
+
+        <br><br><br>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-8 col-md-offset-2">
+
+
+                    <div id="chart1"></div>
+
+
+                    <script>
+                        $(function () {
+                            $("#chart1").shieldChart({
+                                theme: "light",
+                                seriesSettings: {
+                                    line: {
+                                        dataPointText: {
+                                            enabled: true
+                                        }
+                                    }
+                                    },
+                                chartLegend: {
+                                    align: 'center',
+                                    borderRadius: 2,
+                                    borderWidth: 2,
+                                    verticalAlign: 'top'
+                                },
+                                exportOptions: {
+                                    image: true,
+                                    print: true
+                                },
+                                axisX: {
+                                    categoricalValues: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+                                },
+                                axisY: {
+                                    title: {
+                                        text: ""
+                                    }
+                                    },
+                                primaryHeader: {
+                                    text: "Средняя температура за день"
+                                },
+                                dataSeries: [{
+                                    seriesType: 'line',
+                                    collectionAlias: '1 комната',
+                                    data: [14.15,13.5,15.6,14.9,13.8,14.7,15.4,13.9,15.1,14.5,13.8,14.9]
+                                }, {
+                                    seriesType: 'line',
+                                    collectionAlias: '2 комната',
+                                    data: [13.9,15.6,13.7,15.6,16.025,13.8,14.145,12.9,13.45,13.125,15.56,15.6]
+                                }, {
+                                    seriesType: 'line',
+                                    collectionAlias: 'Гостинная',
+                                    data: [15.8,13.2,16.8,14.2,15.6,13.125,15.175,14.23,14.125,15.125,12.256,15.7]
+                                }, {
+                                    seriesType: 'line',
+                                    collectionAlias: 'Кухня',
+                                    data: [14.9,13.6,14.7,16.115,15,14.25,16.1,14.9,16.45,15.5,13.56,14.6]
+                                }]
+                            });
+                        });
+                    </script><!-- /.График -->
+
+                </div><!-- /.col-md-8 col-md-offset-2 -->
+            </div>
+        </div>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+        <link type="text/css" rel="StyleSheet" href="https://bootstraptema.ru/plugins/2016/shieldui/style.css" />
+        <script src="https://bootstraptema.ru/plugins/jquery/jquery-1.11.3.min.js"></script>
+        <script src="https://bootstraptema.ru/plugins/2016/shieldui/script.js"></script>
+
+        <br><br><br>
+
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-8 col-md-offset-2">
+
+
+                    <div id="chart2"></div>
+
+
+                    <script>
+                        $(function () {
+                            $("#chart2").shieldChart({
+                                theme: "light",
+                                seriesSettings: {
+                                    line: {
+                                        dataPointText: {
+                                            enabled: true
+                                        }
+                                    }
+                                    },
+                                chartLegend: {
+                                    align: 'center',
+                                    borderRadius: 2,
+                                    borderWidth: 2,
+                                    verticalAlign: 'top'
+                                },
+                                exportOptions: {
+                                    image: true,
+                                    print: true
+                                },
+                                axisX: {
+                                    categoricalValues: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+                                },
+                                axisY: {
+                                    title: {
+                                        text: ""
+                                    }
+                                    },
+                                primaryHeader: {
+                                    text: "Средняя влажность за день"
+                                },
+                                dataSeries: [{
+                                    seriesType: 'line',
+                                    collectionAlias: '1 комната',
+                                    data: [20.5,31.5,20.6,40.9,51.8,56.7,48.4,52.9,48.1,35.5,48.8,52.9]
+                                }, {
+                                    seriesType: 'line',
+                                    collectionAlias: '2 комната',
+                                    data: [30.9,35.6,40.7,25.6,54.025,42.8,47.145,56.9,49.45,57.125,60.56,55.6]
+                                }, {
+                                    seriesType: 'line',
+                                    collectionAlias: 'Гостинная',
+                                    data: [30.8,45.2,52.8,45.2,49.6,51.125,46.175,53.23,39.125,45.125,54.256,54.7]
+                                }, {
+                                    seriesType: 'line',
+                                    collectionAlias: 'Кухня',
+                                    data: [40.9,51.6,58.7,49.115,54,48.52,56.1,47.9,43.45,53.5,48.56,53.6]
+                                }]
+                            });
+                        });
+                    </script>
+
+                </div><!-- /.col-md-8 col-md-offset-2 -->
+            </div>
+        </div>
+
+
+
+    </div>
+
+{% endblock %}
